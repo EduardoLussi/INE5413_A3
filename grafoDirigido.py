@@ -102,9 +102,8 @@ class GrafoDirigido:
         qtVertices = int(arq.readline()[10:])
         for i in range(qtVertices):
             linha = arq.readline()
-            indice, rotulo = linha.split()
-            indice = int(indice)
-            rotulo = rotulo.replace('"', '')
+            indice = int(linha.split(' ')[0])
+            rotulo = linha.split(' ')[1].replace('"', "").replace("\n", "")
             v = Vertice(int(indice), rotulo)
             self.inserirVertice(v)
 

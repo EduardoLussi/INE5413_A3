@@ -97,10 +97,10 @@ class GrafoNaoDirigido:
         arq = open(arquivo, "r")
 
         qtVertices = int(arq.readline()[10:])
-        for i in range(qtVertices):
+        for _ in range(qtVertices):
             linha = arq.readline()
-            indice = int(linha.split('"')[0])
-            rotulo = linha.split('"')[1]
+            indice = int(linha.split(' ')[0])
+            rotulo = linha.split(' ')[1].replace('"', "").replace("\n", "")
             v = Vertice(int(indice), rotulo)
             self.inserirVertice(v)
 

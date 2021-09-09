@@ -78,7 +78,7 @@ def Lawler(G):
 
     return X[-1]
         
-        
+
 G = GrafoNaoDirigido()
-G.ler("GrafosTeste/teste_de_mesa_Coloracao.net")
+G.ler("GrafosTeste/cor3.net")
 Lawler(G)
