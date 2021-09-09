@@ -54,10 +54,11 @@ def FordFulkerson(G, s, t):
         fluxoMaximo += menorPeso
         p = EdmondsKarp(G, s, t, Gf)    # Encontra próximo caminho aumentante p
     
+    print(f"Fluxo máximo: {fluxoMaximo}")
     return fluxoMaximo
 
 
 grafo = GrafoDirigido()
 grafo.ler("GrafosTeste/teste_de_mesa_FluxoMaximo.net")
 # Recebe grafo e vértice de origem e destino
-print(FordFulkerson(grafo, grafo.obterVertice(2), grafo.obterVertice(5)))
+FordFulkerson(grafo, grafo.obterVertice(2), grafo.obterVertice(5))

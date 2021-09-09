@@ -8,9 +8,6 @@ def obterCombinacoesVertices(G):
     for i in range(1, G.qtdVertices() + 1): # Adiciona combinações de 1 até |V| elementos
         S.extend([[si for si in s] for s in combinations(G.vertices, i)])
 
-    # for s in S:
-    #     print([si.rotulo for si in s])
-
     return S
 
 # Retorna uma lista de subconjuntos de vértices independentes maximais
@@ -60,37 +57,28 @@ def Lawler(G):
         for c in comb:  # Adiciona aresta em comum entre G1 com G
             if G.haAresta(c[0], c[1]):
                 G1.inserirAresta(c[0], c[1], 1)
-        
-        #print([si.rotulo for si in Si])
-        #print([f"{a.vertices[0].rotulo}-{a.vertices[1].rotulo}" for a in G1.arestas])
 
         IndMax = obterIndependentesMax(G1)  # Independentes Maximais
-        #print([[v.rotulo for v in I] for I in IndMax])
         for I in IndMax:
             SiSemI = [si for si in Si if si not in I]   # S\I
             i = S.index(SiSemI) # f(S\I)
             if X[i] + 1 < X[S.index(Si)]:
                 X[S.index(Si)] = X[i] + 1
                 C[S.index(Si)] = C[i].copy()    # Determina cores dos vértices
-                #print(I)
                 for Ii in I:
                     C[S.index(Si)][Ii] = X[i] + 1
-                #print(C[S.index(Si)])
 
-        #print()
-        
+    print(f"São necessárias {X[-1]} cores para colorir o grafo:")
 
-    #for i, Si in enumerate(S):
-     #   print(f"{[s.rotulo for s in Si]}: {X[i]}")
-
-    strCorVertices = ""
+    # Imprime cores de cada vértice
+    strCorVertices = "" 
     for v, i in C[-1].items():
         strCorVertices += f"{v.rotulo}: {i}, "
-    print(strCorVertices[:-2])
+    print(strCorVertices[:-2])   
 
     return X[-1]
         
-
+        
 G = GrafoNaoDirigido()
 G.ler("GrafosTeste/teste_de_mesa_Coloracao.net")
-print(Lawler(G))
+Lawler(G)
