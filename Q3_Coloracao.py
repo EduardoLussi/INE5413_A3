@@ -77,8 +77,3 @@ def Lawler(G):
     print(strCorVertices[:-2])   
 
     return X[-1]
-        
-
-G = GrafoNaoDirigido()
-G.ler("GrafosTeste/cor3.net")
-Lawler(G)

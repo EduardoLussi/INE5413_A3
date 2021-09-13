@@ -56,9 +56,3 @@ def FordFulkerson(G, s, t):
     
     print(f"Fluxo máximo: {fluxoMaximo}")
     return fluxoMaximo
-
-
-grafo = GrafoDirigido()
-grafo.ler("GrafosTeste/teste_de_mesa_FluxoMaximo.net")
-# Recebe grafo e vértice de origem e destino
-FordFulkerson(grafo, grafo.obterVertice(2), grafo.obterVertice(5))
