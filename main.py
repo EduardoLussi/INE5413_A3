@@ -32,7 +32,7 @@ while op in range(1, 4):
             # Recebe grafo e vértice de origem e destino
             FordFulkerson(grafo, grafo.obterVertice(2), grafo.obterVertice(5))
         except:
-            print("Nome de arquivo inválido")
+            print("Arquivo inválido")
         
     elif op == 2:
         grafo = GrafoBipartido()
@@ -45,7 +45,7 @@ while op in range(1, 4):
                 print(a.indice, end=" ")
             print()
         except:
-            print("Nome de arquivo inválido")
+            print("Arquivo inválido")
 
     elif op == 3:
         grafo = GrafoNaoDirigido()
@@ -54,6 +54,6 @@ while op in range(1, 4):
             grafo.ler(f"GrafosTeste/{name}")
             Lawler(grafo)
         except:
-            print("Nome de arquivo inválido")
+            print("Arquivo inválido")
     else:
         break
